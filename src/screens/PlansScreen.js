@@ -20,8 +20,8 @@ function PlansScreen() {
           setSubscription({
             role: subscription.data().role,
             current_period_end: subscription.data().current_period_end.seconds,
-            current_period_start: subscription.data().current_period_start
-              .seconds,
+            current_period_start:
+              subscription.data().current_period_start.seconds,
           });
         });
       });
@@ -65,6 +65,7 @@ function PlansScreen() {
 
     docRef.onSnapshot(async (snapshot) => {
       const { error, sessionId } = snapshot.data();
+      console.log(error, sessionId);
 
       if (error) {
         // Show error to customer and inspect your cloud function logs in firebase console
